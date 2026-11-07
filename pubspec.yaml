@@ -1,0 +1,12 @@
+name: tokyo_api_test
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0+1
+
+
+environment:
+  sdk: '^3.13.0'
+
+
+dependencies:
+  http: ^1.6.0
