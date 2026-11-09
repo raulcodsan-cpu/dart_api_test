@@ -55,16 +55,21 @@ class OdptApiService {
     // 2. Resolve relative endpoint vs full URL
     final String cleanPath = endpoint.startsWith('/') ? endpoint : '/$endpoint';
 
+    final Uri uriTry = Uri.https(
+      'api.odpt.org',
+      '/api/v4$endpoint',
+      mergedParams,
+    );
     final Uri uri = Uri.parse('$_baseUrl$cleanPath')
         .replace(queryParameters: mergedParams);
-    print('Calling to Uri: $uri');
+    print('Calling to Uri: $uriTry');
 
     // 3. Dispatch HTTP GET request
     final http.Response response;
 
     try {
       response = await _client.get(
-        uri,
+        uriTry,
         headers: {'Accept': 'application/json'},
       );
     } catch (e) {

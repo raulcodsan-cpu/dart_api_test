@@ -1,8 +1,9 @@
 import 'api_helper.dart';
+import 'key_file.dart';
 import 'odpt_models.dart';
 
 void main() async {
-  final odptConsumerKey = 'NO_KEY';
+  final odptConsumerKey = KeyFile.apiKey;
 
   final api = OdptApiService(consumerKey: odptConsumerKey);
 
